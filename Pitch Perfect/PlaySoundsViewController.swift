@@ -15,16 +15,22 @@ class PlaySoundsViewController: UIViewController {
   var error : NSError?
   
   @IBAction func slowPlay(sender: AnyObject) {
-    println("PLay button pressed")
-    audioPlayer.prepareToPlay()
-    audioPlayer.play()
-    
+    playAudio(theRate: 0.5)
+  }
+
+  @IBAction func fastPlay(sender: AnyObject) {
+    playAudio(theRate: 1.5)
+  }
+  
+  @IBAction func stopPlay(sender: AnyObject) {
+    audioPlayer.currentTime = 0.0
+    audioPlayer.stop()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    let url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("movie_quot", ofType: "mp3")!)
+    if var url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("movie_quot", ofType: "mp3")!) {
     audioPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
     if audioPlayer == nil {
       if let err = error {
@@ -32,11 +38,18 @@ class PlaySoundsViewController: UIViewController {
       }
       println("out of error")
     }
-    
+      audioPlayer.enableRate = true
+    }
   }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  func playAudio( #theRate: Float) {
+    audioPlayer.stop()
+    audioPlayer.rate = theRate
+    audioPlayer.play()
+  }
+  
 }
