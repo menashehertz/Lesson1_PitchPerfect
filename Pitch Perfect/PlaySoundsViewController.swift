@@ -13,6 +13,7 @@ class PlaySoundsViewController: UIViewController {
   
   var audioPlayer : AVAudioPlayer!
   var error : NSError?
+  var receivedAudio: RecordedAudio!
   
   @IBAction func slowPlay(sender: AnyObject) {
     playAudio(theRate: 0.5)
@@ -29,6 +30,9 @@ class PlaySoundsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    println("in aviewDidload of Playsounds")
+    println("this is the last path url from the main audioRecorder object \(receivedAudio.title)")
+
 
     if var url = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("movie_quot", ofType: "mp3")!) {
     audioPlayer = AVAudioPlayer(contentsOfURL: url, error: &error)
