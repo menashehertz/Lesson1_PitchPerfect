@@ -36,8 +36,7 @@ class PlaySoundsViewController: UIViewController {
   }
   
   @IBAction func stopPlay(sender: AnyObject) {
-    audioPlayer.currentTime = 0.0
-    audioPlayer.stop()
+    stopPlayingAll()
   }
   
   
@@ -53,10 +52,7 @@ class PlaySoundsViewController: UIViewController {
   }
   
   @IBAction func reverbPlay(sender: AnyObject) {
-    audioPlayer.stop()
-    audioEngine.stop()
-    audioEngine.reset()
-    
+    stopPlayingAll()
     var audioPlayerNode = AVAudioPlayerNode()
     audioEngine.attachNode(audioPlayerNode)
     
@@ -87,17 +83,24 @@ class PlaySoundsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  func playAudio( #theRate: Float) {
+  func stopPlayingAll() {
+    audioPlayer.currentTime = 0.0
     audioPlayer.stop()
+    audioPlayer2.stop()
+    audioPlayer2.currentTime = 0.0
+    audioEngine.stop()
+    audioEngine.reset()
+  }
+  
+  func playAudio( #theRate: Float) {
+    stopPlayingAll()
     audioPlayer.rate = theRate
     audioPlayer.volume = 1.0
     audioPlayer.play()
   }
   
   func playAudioWithPitch(pitch: Float){
-    audioPlayer.stop()
-    audioEngine.stop()
-    audioEngine.reset()
+    stopPlayingAll()
     
     var audioPlayerNode = AVAudioPlayerNode()
     audioEngine.attachNode(audioPlayerNode)
