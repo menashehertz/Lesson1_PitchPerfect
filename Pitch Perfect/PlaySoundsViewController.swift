@@ -43,7 +43,6 @@ class PlaySoundsViewController: UIViewController {
   
   @IBAction func echoPlay(sender: AnyObject) {
     playAudio(theRate: 1.0)
-    
     let delay:NSTimeInterval = 0.1 //100ms
     var playtime:NSTimeInterval
     playtime = audioPlayer2.deviceCurrentTime + delay
@@ -51,7 +50,6 @@ class PlaySoundsViewController: UIViewController {
     audioPlayer2.currentTime = 0
     audioPlayer2.volume = 0.8;
     audioPlayer2.playAtTime(playtime)
-
   }
   
   @IBAction func reverbPlay(sender: AnyObject) {
@@ -77,15 +75,12 @@ class PlaySoundsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    println("in aviewDidload of Playsounds")
-    println("this is the last path url from the main audioRecorder object \(receivedAudio.title)")
     audioEngine = AVAudioEngine()
     audioFile = AVAudioFile(forReading: receivedAudio.fielPathUrl, error: nil)
     audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.fielPathUrl, error: &error)
     audioPlayer.enableRate = true
     audioPlayer2 = AVAudioPlayer(contentsOfURL: receivedAudio.fielPathUrl, error: &error)
     audioPlayer2.enableRate = true
-
   }
 
     override func didReceiveMemoryWarning() {
@@ -118,8 +113,7 @@ class PlaySoundsViewController: UIViewController {
     audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
     audioEngine.startAndReturnError(nil)
     
-    audioPlayerNode.play()
-    
+    audioPlayerNode.play()    
   }
   
 }

@@ -27,7 +27,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
   @IBAction func stopRecord(sender: AnyObject) {
     setScreenButtons(true)
     audioRecorder.stop()
-    println("Stop Button Pressed")
   }
   
   
@@ -39,7 +38,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
   
   @IBAction func pauseRecording(sender: AnyObject) {
     audioRecorder.pause()
-    // Set the screen buttons
     setScreenButtons(true)
   }
   
@@ -67,13 +65,10 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // MARK:  Do any additional setup after loading the view, typically from a nib.
-    //Inside func recordAudio(sender: UIButton)
     let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
     let recordingName = "mySound.wav"
     let pathArray = [dirPath, recordingName]
     let filePath = NSURL.fileURLWithPathComponents(pathArray)
-    println(filePath)
     
     var session = AVAudioSession.sharedInstance()
     session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)

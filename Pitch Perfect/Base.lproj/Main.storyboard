@@ -133,8 +133,8 @@
                                     <action selector="darthVaderPlay:" destination="d8F-Py-87B" eventType="touchUpInside" id="Wbm-eq-UNK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFe-dG-728">
-                                <rect key="frame" x="16" y="546" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFe-dG-728">
+                                <rect key="frame" x="70" y="285" width="35" height="30"/>
                                 <state key="normal" title="Echo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -142,29 +142,33 @@
                                     <action selector="echoPlay:" destination="d8F-Py-87B" eventType="touchUpInside" id="T6w-V1-z4G"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYN-YJ-h7V">
-                                <rect key="frame" x="63" y="546" width="49" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYN-YJ-h7V">
+                                <rect key="frame" x="490" y="285" width="49" height="30"/>
                                 <state key="normal" title="Reverb">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="reverbPlay:" destination="d8F-Py-87B" eventType="touchUpInside" id="vHv-KE-0Jb"/>
+                                    <action selector="reverbPlay:" destination="d8F-Py-87B" eventType="touchUpInside" id="m14-3L-WEM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="sYN-YJ-h7V" secondAttribute="centerY" id="1TV-mM-QtP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hgo-9z-VGe" secondAttribute="trailing" constant="20" id="FsF-qf-iHt"/>
                             <constraint firstItem="79B-Xx-d6Z" firstAttribute="centerY" secondItem="D84-bJ-Wud" secondAttribute="centerY" id="K4p-MJ-wUz"/>
                             <constraint firstItem="rhf-X8-mXN" firstAttribute="centerY" secondItem="hgo-9z-VGe" secondAttribute="centerY" id="Oab-Qg-AhL"/>
                             <constraint firstItem="hgo-9z-VGe" firstAttribute="top" secondItem="Ckj-fp-2nq" secondAttribute="bottom" constant="30" id="X4L-jf-XHL"/>
                             <constraint firstAttribute="centerX" secondItem="fG7-x2-CEj" secondAttribute="centerX" id="Xpy-dc-jIr"/>
                             <constraint firstItem="rhf-X8-mXN" firstAttribute="leading" secondItem="s7B-SD-iLC" secondAttribute="leadingMargin" constant="20" id="bhy-FX-6NS"/>
+                            <constraint firstAttribute="centerY" secondItem="tFe-dG-728" secondAttribute="centerY" id="byr-jb-mdz"/>
                             <constraint firstItem="D84-bJ-Wud" firstAttribute="leading" secondItem="s7B-SD-iLC" secondAttribute="leadingMargin" constant="20" id="hXf-LO-I4x"/>
                             <constraint firstItem="rhf-X8-mXN" firstAttribute="top" secondItem="Ckj-fp-2nq" secondAttribute="bottom" constant="30" id="jNb-Me-1Ti"/>
+                            <constraint firstItem="tFe-dG-728" firstAttribute="leading" secondItem="s7B-SD-iLC" secondAttribute="leadingMargin" constant="54" id="lR3-X1-AhE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="79B-Xx-d6Z" secondAttribute="trailing" constant="20" id="q3e-Cp-lao"/>
                             <constraint firstItem="D84-bJ-Wud" firstAttribute="centerY" secondItem="rhf-X8-mXN" secondAttribute="centerY" constant="308" id="rdC-2a-sb2"/>
                             <constraint firstItem="620-Nx-5tf" firstAttribute="top" secondItem="fG7-x2-CEj" secondAttribute="bottom" constant="14" id="riy-jS-AyI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sYN-YJ-h7V" secondAttribute="trailing" constant="45" id="utz-7C-TSV"/>
                         </constraints>
                     </view>
                 </viewController>
