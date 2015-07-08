@@ -81,8 +81,8 @@
 		4611B85F1B3763AA002911A7 /* Pitch Perfect */ = {
 			isa = PBXGroup;
 			children = (
-				4643FD5C1B4B8CC800B9C8D9 /* RecordedAudio.swift */,
 				4611B8661B3763AA002911A7 /* Main.storyboard */,
+				4643FD5C1B4B8CC800B9C8D9 /* RecordedAudio.swift */,
 				4611B8641B3763AA002911A7 /* RecordSoundsViewController.swift */,
 				469AFCAA1B3780FB00B2C05E /* PlaySoundsViewController.swift */,
 				4611B8621B3763AA002911A7 /* AppDelegate.swift */,

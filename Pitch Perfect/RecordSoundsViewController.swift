@@ -11,49 +11,37 @@ import AVFoundation
 
 class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
   
-  //Declared Globally
   var audioRecorder: AVAudioRecorder!
   var recordedAudio: RecordedAudio!
-  
 
   @IBOutlet weak var recordingInProgress: UILabel!
-  
   @IBOutlet weak var recordButton: UIButton!
-  
   @IBOutlet weak var stopButton: UIButton!
-  
   @IBOutlet weak var pauseButton: UIButton!
-  
+
   @IBAction func stopRecord(sender: AnyObject) {
     setScreenButtons(true)
     audioRecorder.stop()
   }
-  
   
   @IBAction func recordVoice(sender: AnyObject) {
     setScreenButtons(false)
     audioRecorder.record()
   }
 
-  
   @IBAction func pauseRecording(sender: AnyObject) {
     audioRecorder.pause()
     setScreenButtons(true)
   }
   
   func audioRecorderDidFinishRecording(recorder: AVAudioRecorder!, successfully flag: Bool) {
-    // TODO:
     if (flag) {
-      recordedAudio = RecordedAudio()
-      recordedAudio.fielPathUrl = recorder.url
-      recordedAudio.title = recorder.url.lastPathComponent
-      
-      self.performSegueWithIdentifier("stopRecording", sender: recordedAudio)
+      recordedAudio = RecordedAudio(fielPathUrl: recorder.url, title: recorder.url.lastPathComponent!)
+      performSegueWithIdentifier("stopRecording", sender: recordedAudio)
     }
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
     if segue.identifier == "stopRecording" {
       let playSoundVC: PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
       let data = sender as! RecordedAudio
@@ -67,14 +55,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     let recordingName = "mySound.wav"
     let pathArray = [dirPath, recordingName]
     let filePath = NSURL.fileURLWithPathComponents(pathArray)
-    
     var session = AVAudioSession.sharedInstance()
     session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
-    
     audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
     audioRecorder.delegate = self
     audioRecorder.meteringEnabled = true
-
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -89,12 +74,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     pauseButton.hidden = flag
   }
   
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 
 

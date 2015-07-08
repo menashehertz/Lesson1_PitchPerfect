@@ -8,7 +8,13 @@
 
 import Foundation
 
-class RecordedAudio: NSObject {
-  var fielPathUrl: NSURL!
-  var title: String!
+class RecordedAudio {
+  var fielPathUrl: NSURL
+  var title: String
+  
+  init(fielPathUrl: NSURL, title: String) {
+    self.fielPathUrl = fielPathUrl
+    self.title = title
+  }
+
 }
