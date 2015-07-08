@@ -58,8 +58,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
       let playSoundVC: PlaySoundsViewController = segue.destinationViewController as! PlaySoundsViewController
       let data = sender as! RecordedAudio
       playSoundVC.receivedAudio = recordedAudio
-      println("in prepareForSegue")
-      println("this is the last path url from the main audioRecorder object \(recordedAudio.title)")
     }
   }
   
